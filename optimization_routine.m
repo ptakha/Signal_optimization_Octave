@@ -39,9 +39,9 @@ for i=1:10
   [params_f_triangle(:,i), error_f_triangle(i), params_d_triangle(:,i), error_d_triangle(i)]=optim_signal('triangle', x_triangle, y_triangle);
   [params_f_square(:,i), error_f_square(i), params_d_square(:,i), error_d_square(i)]=optim_signal('square', x_square, y_square);
   
-  [filter_d_sin(:,i), filter_d_sin_error(i)]=optim_filter(x_sin, y_sin, y_c_sin);
-  [filter_d_triangle(:,i), filter_d_triangle_error(i)]=optim_filter(x_triangle, y_triangle, y_c_triangle);
-  [filter_d_square(:,i), filter_d_square_error(i)]=optim_filter(x_square, y_square, y_c_square);
+  [filter_d_sin(i), filter_d_sin_error(i)]=optim_filter(x_sin, y_sin, y_c_sin);
+  [filter_d_triangle(i), filter_d_triangle_error(i)]=optim_filter(x_triangle, y_triangle, y_c_triangle);
+  [filter_d_square(i), filter_d_square_error(i)]=optim_filter(x_square, y_square, y_c_square);
 endfor
 save data_filter filter*
 save data_params params*
