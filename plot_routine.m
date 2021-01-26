@@ -1,0 +1,20 @@
+function plot_routine(x, y, yc, y_d_min, y_d_max, y_f_min, y_f_max, Title)
+cf=figure()
+subplot(1,2,1)
+plot(x,y)
+hold on
+plot(x, yc, 'go')
+plot(x, y_d_min, 'r', 'linewidth', 5)
+plot(x, y_f_min, 'y', 'linewidth', 5)
+title(strvcat(Title, ' signal optimization minimal error'))
+legend('Noisy signal', 'Clean signal', 'de\_min', 'fminsearch')
+subplot(1,2,2)
+plot(x,y)
+hold on
+plot(x, yc, 'go')
+plot(x, y_d_max, 'linewidth', 5)
+plot(x, y_f_max, 'linewidth', 5)
+title(strcat(Title, ' signal optimization maximal error'))
+legend('Noisy signal', 'Clean signal', 'de\_min', 'fminsearch')
+saveas(cf, strcat(Title, '_signal.png'))
+endfunction
